@@ -8,5 +8,8 @@
 
 import Foundation
 
-print("Hello, World!")
-
+let transformer = WordTransformer(wordList: [], fixedWordLength: 0)
+let startingWord = ""
+let endingWord = ""
+let path = transformer.findShortestTransformationPath(fromWord: startingWord, into: endingWord)
+print("Found path \(path) between \(startingWord) and \(endingWord)")

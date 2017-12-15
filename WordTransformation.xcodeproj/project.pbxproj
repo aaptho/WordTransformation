@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		76E13CB81FE36D3700333704 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E13CB71FE36D3700333704 /* main.swift */; };
+		76E13CC51FE36D9F00333704 /* WordTransformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E13CC41FE36D9F00333704 /* WordTransformationTests.swift */; };
+		76E13CCB1FE36DAC00333704 /* WordTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E13CCA1FE36DAC00333704 /* WordTransformer.swift */; };
+		76E13CCC1FE36DAC00333704 /* WordTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E13CCA1FE36DAC00333704 /* WordTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +28,21 @@
 /* Begin PBXFileReference section */
 		76E13CB41FE36D3700333704 /* WordTransformation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WordTransformation; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E13CB71FE36D3700333704 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		76E13CC21FE36D9F00333704 /* WordTransformationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordTransformationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76E13CC41FE36D9F00333704 /* WordTransformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTransformationTests.swift; sourceTree = "<group>"; };
+		76E13CC61FE36D9F00333704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76E13CCA1FE36DAC00333704 /* WordTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		76E13CB11FE36D3700333704 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76E13CBF1FE36D9F00333704 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				76E13CB61FE36D3700333704 /* WordTransformation */,
+				76E13CC31FE36D9F00333704 /* WordTransformationTests */,
 				76E13CB51FE36D3700333704 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				76E13CB41FE36D3700333704 /* WordTransformation */,
+				76E13CC21FE36D9F00333704 /* WordTransformationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,8 +74,18 @@
 			isa = PBXGroup;
 			children = (
 				76E13CB71FE36D3700333704 /* main.swift */,
+				76E13CCA1FE36DAC00333704 /* WordTransformer.swift */,
 			);
 			path = WordTransformation;
+			sourceTree = "<group>";
+		};
+		76E13CC31FE36D9F00333704 /* WordTransformationTests */ = {
+			isa = PBXGroup;
+			children = (
+				76E13CC41FE36D9F00333704 /* WordTransformationTests.swift */,
+				76E13CC61FE36D9F00333704 /* Info.plist */,
+			);
+			path = WordTransformationTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +108,23 @@
 			productReference = 76E13CB41FE36D3700333704 /* WordTransformation */;
 			productType = "com.apple.product-type.tool";
 		};
+		76E13CC11FE36D9F00333704 /* WordTransformationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76E13CC71FE36D9F00333704 /* Build configuration list for PBXNativeTarget "WordTransformationTests" */;
+			buildPhases = (
+				76E13CBE1FE36D9F00333704 /* Sources */,
+				76E13CBF1FE36D9F00333704 /* Frameworks */,
+				76E13CC01FE36D9F00333704 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WordTransformationTests;
+			productName = WordTransformationTests;
+			productReference = 76E13CC21FE36D9F00333704 /* WordTransformationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +136,9 @@
 				ORGANIZATIONNAME = "Aaron Thompson";
 				TargetAttributes = {
 					76E13CB31FE36D3700333704 = {
+						CreatedOnToolsVersion = 9.1;
+					};
+					76E13CC11FE36D9F00333704 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -111,9 +157,20 @@
 			projectRoot = "";
 			targets = (
 				76E13CB31FE36D3700333704 /* WordTransformation */,
+				76E13CC11FE36D9F00333704 /* WordTransformationTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		76E13CC01FE36D9F00333704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		76E13CB01FE36D3700333704 /* Sources */ = {
@@ -121,6 +178,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				76E13CB81FE36D3700333704 /* main.swift in Sources */,
+				76E13CCB1FE36DAC00333704 /* WordTransformer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76E13CBE1FE36D9F00333704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76E13CC51FE36D9F00333704 /* WordTransformationTests.swift in Sources */,
+				76E13CCC1FE36DAC00333704 /* WordTransformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +223,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -213,7 +280,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -236,8 +303,6 @@
 		76E13CBC1FE36D3700333704 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FZU7U4ED2K;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -246,8 +311,36 @@
 		76E13CBD1FE36D3700333704 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		76E13CC81FE36D9F00333704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				INFOPLIST_FILE = WordTransformationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aaronthompson.WordTransformationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		76E13CC91FE36D9F00333704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				INFOPLIST_FILE = WordTransformationTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aaronthompson.WordTransformationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -270,6 +363,15 @@
 			buildConfigurations = (
 				76E13CBC1FE36D3700333704 /* Debug */,
 				76E13CBD1FE36D3700333704 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76E13CC71FE36D9F00333704 /* Build configuration list for PBXNativeTarget "WordTransformationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				76E13CC81FE36D9F00333704 /* Debug */,
+				76E13CC91FE36D9F00333704 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
