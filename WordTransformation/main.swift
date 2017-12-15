@@ -31,7 +31,7 @@ let fixedWordLength = 3
 let wordList = ["cat", "bat", "cog", "log", "dog", "qzy", "cot", "bog", "bag", "dag", "lag"]
 print("Loaded list of \(fixedWordLength)-letter words that was \(wordList.count) words long")
 
-let transformer = WordTransformer(wordList: wordList, fixedWordLength: fixedWordLength)
+let transformer = WordTransformer(wordList: wordList, fixedWordLength: fixedWordLength, threadCount: 2)
 let startingWord = "cat"
 let endingWord = "log"
 let distance = transformer.findShortestTransformationPath(fromWord: startingWord, into: endingWord)

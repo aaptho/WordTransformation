@@ -14,10 +14,18 @@ class WordTransformer {
     private let _fixedWordLength: Int
     private let _associatedWords: [String:Set<String>]
     
-    init(wordList: [String], fixedWordLength: Int) {
+    init(wordList: [String], fixedWordLength: Int, threadCount: Int = 1) {
         _wordList = wordList
         _fixedWordLength = fixedWordLength
-        _associatedWords = WordTransformer._buildAssociatedWordsDictionary(wordList: wordList)
+        
+        let buildingStartTime = CFAbsoluteTimeGetCurrent()
+        if threadCount <= 1 {
+            _associatedWords = WordTransformer._buildAssociatedWordsDictionary(wordListToBuild: wordList, fullWordList: wordList)
+        } else {
+            _associatedWords = WordTransformer._multithreadedBuildAssociatedWordsDictionary(threadCount: threadCount, wordList: wordList)
+        }
+        let buildingEndTime = CFAbsoluteTimeGetCurrent()
+        print("Built associated words dictionary in \(buildingEndTime - buildingStartTime) seconds")
     }
     
     func findShortestTransformationPath(fromWord word: String, into otherWord: String) -> Int {
@@ -25,18 +33,61 @@ class WordTransformer {
         
         // We've already preprocessed the word list into a dictionary of associated words
         // That lets us do a breadth-first search through to find the right word
+        let bfsStartTime = CFAbsoluteTimeGetCurrent()
         let length = _performBFS(start: word, end: otherWord)
+        let bfsEndTime = CFAbsoluteTimeGetCurrent()
+        print("Performed BFS in \(bfsEndTime - bfsStartTime) seconds")
         
         return length
     }
     
-    private class func _buildAssociatedWordsDictionary(wordList: [String]) -> [String:Set<String>] {
+    private class func _multithreadedBuildAssociatedWordsDictionary(threadCount: Int, wordList: [String]) -> [String:Set<String>] {
+        // Basically want to take a mapreduce approach here
+        
+        // Partition the word list
+        let chunkSize = wordList.count / threadCount + 1
+        let partitionedWordLists = wordList.chunked(by: chunkSize)
+        
+        // Dispatch a job for each partition
+        var processedPartitions = [[String:Set<String>]]()
+        let processedPartitionsLock = DispatchQueue(label: "Processed partitions lock")
+        
+        // Map in parallel
+        // Use counting semaphores to wait for all the jobs to finish
+        let semaphore = DispatchSemaphore(value: 0)
+         
+        for partition in partitionedWordLists {
+            DispatchQueue.global().async {
+                let processedPartition = _buildAssociatedWordsDictionary(wordListToBuild: partition, fullWordList: wordList)
+                print("Finished processing \(partition.first ?? "nil") through \(partition.last ?? "nil")")
+                processedPartitionsLock.sync {
+                    processedPartitions.append(processedPartition)
+                }
+                semaphore.signal()
+            }
+        }
+        
+        for _ in 0 ..< threadCount {
+            semaphore.wait()
+        }
+        
+        // Reduce
+        var result = [String:Set<String>]()
+        
+        for partition in processedPartitions {
+            result.merge(partition) { (current, _) in current }
+        }
+        
+        return result
+    }
+    
+    private class func _buildAssociatedWordsDictionary(wordListToBuild: [String], fullWordList: [String]) -> [String:Set<String>] {
         var result: [String:Set<String>] = [:]
         
-        for word in wordList {
+        for word in wordListToBuild {
             var matches = Set<String>()
             
-            for otherWord in wordList {
+            for otherWord in fullWordList {
                 if word.differsByOneLetterFrom(otherWord) {
                     matches.insert(otherWord)
                 }
@@ -119,4 +170,14 @@ extension String {
         return differenceCount == 1
     }
     
+}
+
+// Credit: this Swift 4 array chunking algorithm was copied from
+// https://stackoverflow.com/questions/26395766/swift-what-is-the-right-way-to-split-up-a-string-resulting-in-a-string-wi/38156873#38156873
+extension Array {
+    func chunked(by chunkSize: Int) -> [[Element]] {
+        return stride(from: 0, to: self.count, by: chunkSize).map {
+            Array(self[$0 ..< Swift.min($0 + chunkSize, self.count)])
+        }
+    }
 }

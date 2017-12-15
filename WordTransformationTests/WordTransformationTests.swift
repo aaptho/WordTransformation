@@ -43,6 +43,16 @@ class WordTransformationTests: XCTestCase {
         XCTAssertEqual(distance, 3)
     }
     
+    func testMultithreadedTransformation() {
+        let wordLength = 5
+        let wordList = WordListLoader.loadWordlist(filteredByLength: wordLength)
+        
+        let transformer = WordTransformer(wordList: wordList, fixedWordLength: wordLength, threadCount: 4)
+        let distance = transformer.findShortestTransformationPath(fromWord: "smart", into: "brain")
+        print("Distance was \(distance)")
+        XCTAssertEqual(distance, 5)
+    }
+    
     func testWordListLoader() {
         let wordLength = 7
         let wordList = WordListLoader.loadWordlist(filteredByLength: wordLength)
