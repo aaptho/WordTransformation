@@ -11,6 +11,8 @@
 		76E13CC51FE36D9F00333704 /* WordTransformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E13CC41FE36D9F00333704 /* WordTransformationTests.swift */; };
 		76E13CCB1FE36DAC00333704 /* WordTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E13CCA1FE36DAC00333704 /* WordTransformer.swift */; };
 		76E13CCC1FE36DAC00333704 /* WordTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E13CCA1FE36DAC00333704 /* WordTransformer.swift */; };
+		76E13CCE1FE3751D00333704 /* WordListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E13CCD1FE3751D00333704 /* WordListLoader.swift */; };
+		76E13CCF1FE3751D00333704 /* WordListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E13CCD1FE3751D00333704 /* WordListLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +34,7 @@
 		76E13CC41FE36D9F00333704 /* WordTransformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTransformationTests.swift; sourceTree = "<group>"; };
 		76E13CC61FE36D9F00333704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76E13CCA1FE36DAC00333704 /* WordTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTransformer.swift; sourceTree = "<group>"; };
+		76E13CCD1FE3751D00333704 /* WordListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 			children = (
 				76E13CB71FE36D3700333704 /* main.swift */,
 				76E13CCA1FE36DAC00333704 /* WordTransformer.swift */,
+				76E13CCD1FE3751D00333704 /* WordListLoader.swift */,
 			);
 			path = WordTransformation;
 			sourceTree = "<group>";
@@ -179,6 +183,7 @@
 			files = (
 				76E13CB81FE36D3700333704 /* main.swift in Sources */,
 				76E13CCB1FE36DAC00333704 /* WordTransformer.swift in Sources */,
+				76E13CCE1FE3751D00333704 /* WordListLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +193,7 @@
 			files = (
 				76E13CC51FE36D9F00333704 /* WordTransformationTests.swift in Sources */,
 				76E13CCC1FE36DAC00333704 /* WordTransformer.swift in Sources */,
+				76E13CCF1FE3751D00333704 /* WordListLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

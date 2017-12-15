@@ -22,4 +22,13 @@ class WordTransformationTests: XCTestCase {
     func testValidTransformation() {
     }
     
+    func testWordListLoader() {
+        let wordLength = 7
+        let wordList = WordListLoader.loadWordlist(filteredByLength: 7)
+        
+        wordList.forEach {
+            XCTAssert($0.count == wordLength)
+        }
+    }
+    
 }
