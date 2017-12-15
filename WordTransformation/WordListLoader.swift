@@ -11,13 +11,14 @@ import Foundation
 class WordListLoader {
     
     class func loadWordlist(filteredByLength wordLength: Int) -> [String] {
-        var wordList: [String] = []
+    var wordList: [String] = []
         
-        let dictionaryString = try! String(contentsOfFile: "/usr/share/dict/words", encoding: String.Encoding.ascii)
+        let dictionaryPath = "/usr/share/dict/words"
+        let dictionaryString = try! String(contentsOfFile: dictionaryPath, encoding: String.Encoding.ascii)
         
         dictionaryString.enumerateLines { (word: String, stop: inout Bool) in
             if word.count == wordLength {
-                wordList.append(word)
+                wordList.append(word.lowercased())
             }
         }
         

@@ -13,22 +13,42 @@ class WordTransformationTests: XCTestCase {
     func testInvalidWordLengths() {
     }
     
-    func testSameWordLength() {
+    func testSameWord() {
+        let wordLength = 3
+        let wordList = WordListLoader.loadWordlist(filteredByLength: wordLength)
+        
+        let transformer = WordTransformer(wordList: wordList, fixedWordLength: wordLength)
+        let distance = transformer.findShortestTransformationPath(fromWord: "cat", into: "cat")
+        print("Distance was \(distance)")
+        XCTAssertEqual(distance, 0)
     }
     
     func testTransformationNotFound() {
+        let wordLength = 3
+        let wordList = WordListLoader.loadWordlist(filteredByLength: wordLength)
+        
+        let transformer = WordTransformer(wordList: wordList, fixedWordLength: wordLength)
+        let distance = transformer.findShortestTransformationPath(fromWord: "cat", into: "zyx")
+        print("Distance was \(distance)")
+        XCTAssertEqual(distance, -1)
     }
     
     func testValidTransformation() {
+        let wordLength = 3
+        let wordList = WordListLoader.loadWordlist(filteredByLength: wordLength)
+        
+        let transformer = WordTransformer(wordList: wordList, fixedWordLength: wordLength)
+        let distance = transformer.findShortestTransformationPath(fromWord: "cat", into: "dog")
+        print("Distance was \(distance)")
+        XCTAssertEqual(distance, 3)
     }
     
     func testWordListLoader() {
         let wordLength = 7
-        let wordList = WordListLoader.loadWordlist(filteredByLength: 7)
+        let wordList = WordListLoader.loadWordlist(filteredByLength: wordLength)
         
-        wordList.forEach {
-            XCTAssert($0.count == wordLength)
-        }
+        XCTAssertFalse(wordList.isEmpty)
+        wordList.forEach { XCTAssert($0.count == wordLength) }
     }
     
 }

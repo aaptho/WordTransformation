@@ -27,11 +27,12 @@
 
 import Foundation
 
-let fixedWordLength = 5
-let wordList = WordListLoader.loadWordlist(filteredByLength: fixedWordLength)
-let transformer = WordTransformer(wordList: wordList, fixedWordLength: 0)
-let startingWord = ""
-let endingWord = ""
-let path = transformer.findShortestTransformationPath(fromWord: startingWord, into: endingWord)
+let fixedWordLength = 3
+let wordList = ["cat", "bat", "cog", "log", "dog", "qzy", "cot", "bog", "bag", "dag", "lag"]
+print("Loaded list of \(fixedWordLength)-letter words that was \(wordList.count) words long")
 
-print("Found path \(path) between \(startingWord) and \(endingWord)")
+let transformer = WordTransformer(wordList: wordList, fixedWordLength: fixedWordLength)
+let startingWord = "cat"
+let endingWord = "log"
+let distance = transformer.findShortestTransformationPath(fromWord: startingWord, into: endingWord)
+print("Transformation distance was \(distance)")
